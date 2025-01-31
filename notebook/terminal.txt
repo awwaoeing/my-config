@@ -1,0 +1,29 @@
+^c 终止进程/命令换行
+^u 删除当前命令
+Tab 补全命令
+
+history 显示历史指令
+
+ls -lh 详细显示文件信息
+ls -a  显示隐藏文件
+
+pwd 显示文件路径
+cd 返回
+cd + /.../... 切换文件路径(绝对路径)
+cd + .../... 切换文件路径(相对路径)
+cd.. 返回上层目录
+
+cp /dir1/a.cpp  /dir2/   将a.cpp复制到dir2中
+cp /dir1/a.cpp  /dir2/b.cpp 将a.cpp复制到dir2中,并重命名
+cp -r a b 将a目录复制到b目录下,b目录已存在
+cp -r a c 将a目录复制一份新目录c,c目录不存在
+
+mkdir 创建文件夹
+mkdir -p + a/b/c... 创建一系列嵌套文件夹
+
+rm a b c ...	删除文件a 、b、c
+rm -r a		删除文件夹		
+
+mv /a/b  /c/ 将b文件移动到c文件夹下
+mv a b  将a重命名为b
+

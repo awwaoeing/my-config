@@ -1,0 +1,20 @@
+工作流程：
+
+
+开tmux ，C-a 启动，分屏
+tmux 开新窗口 C-a + c
+
+git init,
+开分支,一个文件完善后add和commit,整个分支完善后merge到主分支
+
+nerdtree  中英文键+t启动
+undotree  tt
+
+在tmux中复制内容到系统剪切板 C-a + [ 进入复制模式，拖拽鼠标选择要复制的内容
+vim 编辑器模式下插入模式用10 (fn键+F10）开始粘贴和不粘贴模式之间的相互替换,避免在tmux模式下粘贴的缩进混乱
+
+
+jupyter console
+
+h连接远程服务器
+htop查看cpu和内存使用情况

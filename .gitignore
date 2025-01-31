@@ -1,0 +1,15 @@
+*.swp
+*~
+.netrwhist
+.viminfo
+*.log
+*.bak
+*.tmp
+*.pyc # 如果有 Python 文件
+__pycache__/ # 如果有 Python 文件
+*.db # 避免提交数据库文件
+*.env # 避免提交环境变量文件
+node_modules/ # 避免提交 node_modules
+venv/ # 避免提交 Python 虚拟环境
+.idea/ # 避免提交 IDE 文件
+.vscode/ # 避免提交 VSCode 文件

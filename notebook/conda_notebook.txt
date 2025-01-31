@@ -1,0 +1,91 @@
+Conda 的核心概念：
+
+包 (Packages)： conda 可以用来管理软件包，包括 Python 包、系统工具包以及其他语言的包。
+环境 (Environments)： conda 可以创建和管理独立的开发环境，每个环境都有自己独立的 Python 解释器、包和配置，可以避免不同项目之间的依赖冲突。
+通道 (Channels)： conda 可以从不同的通道（例如 conda-forge, bioconda）下载软件包。
+依赖关系： conda 可以自动处理包之间的依赖关系，确保你安装的包能够正常工作。
+Conda 的常用命令：
+
+环境管理： 将 <env_name> 替换成实际名字，不加< >, 
+创建环境：###################################################################################################################
+conda create -n <env_name>  # 创建一个名为 <env_name> 的环境  (conda create -n myenv) (conda create -n newenv)
+conda create -n <env_name> python=3.9  # 创建一个指定 Python 版本为 3.9 的环境
+conda activate <env_name>  # 激活名为 <env_name> 的环境
+conda deactivate # 停用当前激活的环境
+conda env list # 列出所有已创建的环境
+conda env remove -n <env_name> # 删除名为 <env_name> 的环境
+conda create -n <new_env_name> --clone <existing_env_name>  # 复制一个已存在的环境
+
+conda env export -n <env_name> > environment.yml(可替换为绝对路径) # 将环境信息导出到 environment.yml 文件， 方便共享
+
+从 environment.yml 文件创建环境:
+conda env create -f environment.yml # 使用 environment.yml 文件创建环境
+指定环境名称：你可以使用 -n 或 --name 选项来指定环境的名称：这会创建一个名为 my_new_env 的环境。
+conda env create -f environment.yml -n my_new_env
+从指定路径读取 environment.yml:
+如果你的 environment.yml 不在当前路径下， 你可以使用绝对路径或者相对路径指定文件路径。 例如：
+conda env create -f /path/to/environment.yml -n my_new_env
+
+conda install <package_name> # 安装名为 <package_name> 的包
+conda install <package_name>=<version> # 安装指定版本的包
+conda install -c <channel> <package_name> # 从指定通道安装包，  例如 conda install -c conda-forge vim
+conda uninstall <package_name> # 卸载名为 <package_name> 的包
+conda update <package_name> # 更新名为 <package_name> 的包
+conda update --all  # 更新所有包
+conda list  # 列出当前环境已安装的包
+你也可以使用 pip list 列出已安装的包， pip list 会列出所有使用 pip 安装的包
+conda search <package_name> # 搜索名为 <package_name> 的包
+conda install <package_file> # 从本地文件安装包，例如 conda install package.tar.bz2
+
+通道管理：
+列出通道：
+conda config --get channels # 列出当前配置的所有通道
+添加通道：
+conda config --add channels <channel_url> # 添加指定的通道
+conda config --add channels conda-forge  # 添加 conda-forge 通道
+例如： conda config --add channels conda-forge
+删除通道：
+conda config --remove channels <channel_url> # 删除指定的通道
+例如：conda config --remove channels conda-forge
+
+Conda 本身管理：
+更新 Conda：
+conda update conda # 更新 conda 本身
+查看 Conda 版本：
+conda --version  # 查看 conda 版本
+清理无用的包：
+conda clean --all # 清理无用的包缓存。
+配置 Conda:
+设置镜像: 你可以使用以下命令设置 conda 的镜像， 可以提高安装速度
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main
+ conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free
+ conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/r
+ conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+
+
+Conda 的一些高级用法:
+使用 environment.yml 文件：
+你可以使用 environment.yml 文件来描述一个完整的 conda 环境。
+你可以在文件中指定环境名称、Python 版本、依赖包、通道等信息。
+你可以使用 conda env export > environment.yml 将你当前环境的信息导出到 environment.yml 文件中
+然后可以使用 conda env create -f environment.yml 从 environment.yml 文件创建新的环境。
+environment.yml 文件在团队协作和环境复现时非常有用。
+使用 requirements.txt 文件：
+你可以使用 pip freeze > requirements.txt 生成当前环境所有依赖包的列表。
+然后使用 conda create --name <env_name> --file requirements.txt  从 requirements.txt 创建环境。
+使用此方法创建的环境， 需要使用 pip 来安装包。
+使用 pip 安装包：
+尽管 conda 提供了包管理功能，但你仍然可以使用 pip 来安装 conda 中没有的包。
+你应该尽可能使用 conda install，只有当你需要的包在 conda 中找不到时，才应该使用 pip install。
+设置默认通道:
+你可以使用 conda config --set channel_priority strict 配置conda使用严格的通道优先级。
+这样 conda 会按照通道列表的顺序来查找包。
+离线安装：
+你可以下载 conda 包到本地， 然后在离线环境中安装。
+总结：
+
+conda 是一个非常强大的包管理器和环境管理器。 理解 conda 的各种用法，可以让你更好地管理你的 Python 项目和开发环境。 它主要用于 Python 包管理和虚拟环境管理， 它具有以下优点：
+
+跨平台: 支持 Windows, macOS 和 Linux 等多个平台。
+环境隔离： 每个环境都有自己独立的依赖包， 避免了包冲突的问题
+依赖管理： 可以很好的管理依赖。

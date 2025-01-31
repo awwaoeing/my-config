@@ -1,0 +1,7 @@
+conda info --envs
+这将列出所有的 Anaconda 环境，并用星号 * 标出当前激活的环境
+如果你有特定的虚拟环境（例如 myenv），你可以通过以下命令激活它：conda activate myenv
+激活后，你的环境路径会变化，之后使用 Vim 时就会使用该虚拟环境中的 Python。
+
+
+

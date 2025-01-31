@@ -1,0 +1,21 @@
+使用  C-a来启动tmux才能用快捷指令如分割pane
+分割pane :   中英+/  中英+-
+C-a x 关闭当前窗格
+C-a d 退出当前tmux并保持进程不中断
+C-a h/l/j/k 在不同pane之间跳转
+C-a z 将当前pane全屏显示，摁两次恢复原来分离状态
+tmux ls 查看所有会话
+tmux attach -t 0/1/2 接入已存在的会话,0/1/2为session编号
+tmux kill-session -t 0/1/2 杀死某个会话
+C-a + [ 后才能复制粘贴内容到系统剪切板上
+
+C-a + c 创建新窗口
+C-a + 1/2/3 切换到窗口1/2/3
+C-a + w 列出所有窗口
+C-a + , 重命名窗口
+C-a + & 杀死当前窗口 
+C-a + p 切换至上一个窗口
+C-a + n 切换至下一个窗口
+C-a, :swap-window -s 1 -t 2 交换两个窗口的位置
+
+

@@ -1,0 +1,38 @@
+git status 查看当前状态
+git branch 查看有哪些分支
+
+新建一个文件夹
+进入该文件夹
+git init ：在当前目录下创建一个新的 Git 仓库
+创建编辑文件 vim a.cpp
+git add a.cpp : 将指定的文件添加到暂存区 (Staging Area)。
+git add .  :将所有更改的文件添加到暂存区
+git commit -m "first/second/third"  将暂存区中的更改提交到 Git 仓库
+git remote -v 查看远程仓库的 URL
+git remote add origin https://github.com/awwaoeing/文件夹名称
+git remote add origin git@github.com:awwaoeing/文件夹名称
+git remote set-url origin git@github.com:awwaoeing/文件夹名称
+push前关闭vpn
+git push -u origin <分支名称>: 推送本地分支到远程仓库，并建立本地分支和远程分支的追踪关系 (第一次推送)。
+git push: 推送代码到远程仓库 (如果已经关联了本地和远程分支)。
+
+
+
+分支
+git branch 查看有哪些分支
+git branch fenzhi1  : 创建一个新的分支。
+git checkout fenzhi1  : 切换到指定的分支。
+git checkout -b fenzhi1  : 创建并切换到新的分支。
+在新分支上操作 : 编辑完文件后要 add 和 commit
+git checkout master : 切换到目标分支（例如 main 或 master）。
+git merge fenzhi1  : 将分支合并到主分支。
+git branch -d fenzi1 ：删除已合并的分支
+git branch -D my_feature_branch : 强制删除未合并的分支
+合并分支时可能会出现冲突，需要手动解决。
+
+
+
+在新的服务器上需要生成公私钥
+ssh-keygen -t rsa -b 4096 -C "your-email@example.com"
+将公钥添加到github上的setting的ssh和GPG keys上
+
